@@ -6,15 +6,20 @@
               password="111111"/>
   <document>
     <entity name="shop" 
-            query="select id,name,addr,CONCAT(lat,',',lng) as store_lat_lng,rate,cost,description,cat_id,tag from shop">
+			query="select s.id as id,s.name as name,s.rate as rate,s.cost as cost,CONCAT(lat,',',lng) as store_lat_lng,
+			s.cat_id as cat_id,c.pid as cat_pid,s.comment_count as comment_count,
+			s.district_id as district_id,d.pid as district_pid from shop s left join 
+			shop_cateogry c on s.cat_id = c.id left join district d on s.district_id = d.id">
 	<fiend column="id" name="id"/>
 	<field column="name" name="name"/>
-	<field column="addr" name="addr"/>
-	<field column="store_lat_lng" name="store_lat_lng"/>
 	<field column="rate" name="rate"/>
-	<field column="cost" name="cost"/>
-	<field column="description" name="description"/>
-	
+	<filed column="cost" name="cost"/>
+	<field column="store_lat_lng" name="store_lat_lng"/>
+	<field column="cat_id" name="cat_id"/>
+	<field column="cat_pid" name="cat_pid"/>
+	<field column="comment_count" name="comment_count"/>
+	<field column="district_id" name="district_id"/>
+	<field column="district_pid" name="district_pid"/>
     </entity>
   </document>
 </dataConfig>
