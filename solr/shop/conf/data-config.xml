@@ -1,0 +1,20 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" 
+              driver="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/sylife" 
+              user="solr" 
+              password="111111"/>
+  <document>
+    <entity name="shop" 
+            query="select id,name,addr,CONCAT(lat,',',lng) as store_lat_lng,rate,cost,description,cat_id,tag from shop">
+	<fiend column="id" name="id"/>
+	<field column="name" name="name"/>
+	<field column="addr" name="addr"/>
+	<field column="store_lat_lng" name="store_lat_lng"/>
+	<field column="rate" name="rate"/>
+	<field column="cost" name="cost"/>
+	<field column="description" name="description"/>
+	
+    </entity>
+  </document>
+</dataConfig>
