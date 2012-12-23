@@ -11,6 +11,7 @@
 	<field name="comment_count"  type="int" indexed="true" stored="true"/>
 	<field name="district_id"  type="int" indexed="true" stored="true"/>
 	<field name="district_pid"  type="int" indexed="true" stored="true"/>
+	<field name="create_time"  type="long" indexed="true" stored="true"/>
    <field name="store_lat_lng" type="location" indexed="true" stored="true"/>
    <field name="_version_" type="long" indexed="true" stored="true"/>
    
