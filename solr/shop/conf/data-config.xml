@@ -6,13 +6,16 @@
               password="111111"/>
   <document>
     <entity name="shop" 
-			query="select s.id as id,s.name as name,s.rate as rate,s.cost as cost,CONCAT(lat,',',lng) as store_lat_lng,
+			query="select s.id as id,s.name as name,s.rate as rate,s.cost as cost,CONCAT(lat,',',lng) as store_lat_lng,s.tag as tag,s.addr as addr,
 			s.cat_id as cat_id,c.pid as cat_pid,s.comment_count as comment_count,DATE_FORMAT(s.create_time,'%Y%m%d%H%i%s') AS create_time,
-			s.district_id as district_id,d.pid as district_pid from shop s left join 
+			s.district_id as district_id,d.pid as district_pid,d.name as district_name,s.status as status from shop s left join 
 			shop_cateogry c on s.cat_id = c.id left join district d on s.district_id = d.id
 			where ('${dataimporter.request.clean}' != 'false' OR create_time  > '${dataimporter.last_index_time}')">
 	<fiend column="id" name="id"/>
 	<field column="name" name="name"/>
+	<field column="tag" name="tag"/>
+	<field column="addr" name="addr"/>
+	<field column="district_name" name="district_name"/>
 	<field column="rate" name="rate"/>
 	<filed column="cost" name="cost"/>
 	<field column="store_lat_lng" name="store_lat_lng"/>
@@ -22,6 +25,7 @@
 	<filed column="create_time" name="create_time"/>
 	<field column="district_id" name="district_id"/>
 	<field column="district_pid" name="district_pid"/>
+	<field column="status" name="status"/>
     </entity>
   </document>
 </dataConfig>
