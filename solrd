@@ -1,9 +1,14 @@
 #!/bin/bash
+#solr home directory
 SOLR_DIR="/home/www/solr"
+#start and stop options
 JAVA_OPTIONS="-DSTOP.PORT=8098 -DSTOP.KEY=123 -jar start.jar"
+#log directory
 LOG="/var/log/solr.log"
+#java bin
 JAVA="/usr/local/java/bin/java"
 COMMAND="$JAVA $JAVA_OPTIONS"
+
 case $1 in 
 start)
 echo "Starting Solr..."
