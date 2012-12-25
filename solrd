@@ -6,19 +6,19 @@ JAVA="/usr/local/java/bin/java"
 COMMAND="$JAVA $JAVA_OPTIONS"
 case $1 in 
 start)
-echo "Starting Solr"
+echo "Starting Solr..."
 cd $SOLR_DIR
-$JAVA $JAVA_OPTIONS  >> $LOG &
+$JAVA $JAVA_OPTIONS 2>>$LOG&
 ;;
 
 stop)
-echo "Stopping Solr"
+echo "Stopping Solr..."
 cd $SOLR_DIR
 $JAVA $JAVA_OPTIONS --stop
 ;;
  
 restart)
-echo "Restarting Solr"
+echo "Restarting Solr..."
 $0 stop
 $0 start
 ;;

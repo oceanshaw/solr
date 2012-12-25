@@ -3,19 +3,19 @@
  <fields>
        
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
-   <field name="name" type="text_general" indexed="true" stored="true"/>
-   <field name="tag" type="text_general" indexed="true" stored="true"/>
-   <field name="addr" type="text_general" indexed="true" stored="true"/>
-   <field name="rate"  type="float" indexed="true" stored="true"/>
-	<field name="cost"  type="int" indexed="true" stored="true"/>
-	<field name="cat_id"  type="int" indexed="true" stored="true"/>
-	<field name="cat_pid"  type="int" indexed="true" stored="true"/>
-	<field name="comment_count"  type="int" indexed="true" stored="true"/>
-	<field name="district_id"  type="int" indexed="true" stored="true"/>
-	<field name="district_pid"  type="int" indexed="true" stored="true"/>
-	<field name="district_name" type="text_general" indexed="true" stored="true"/>
-	<field name="status"  type="int" indexed="true" stored="true"/>
-	<field name="create_time"  type="long" indexed="true" stored="true"/>
+   <field name="name" type="text_zh" indexed="true" stored="true"/>
+   <field name="tag" type="text_zh" indexed="true" stored="true"/>
+   <field name="addr" type="text_zh" indexed="true" stored="true"/>
+   <field name="rate"  type="tfloat" indexed="true" stored="true"/>
+    <field name="cost"  type="tint" indexed="true" stored="true"/>
+    <field name="cat_id"  type="tint" indexed="true" stored="true"/>
+    <field name="cat_pid"  type="tint" indexed="true" stored="true"/>
+    <field name="comment_count"  type="tint" indexed="true" stored="true"/>
+    <field name="district_id"  type="tint" indexed="true" stored="true"/>
+    <field name="district_pid"  type="tint" indexed="true" stored="true"/>
+    <field name="district_name" type="text_zh" indexed="true" stored="true"/>
+    <field name="status"  type="tint" indexed="true" stored="true"/>
+    <field name="create_time"  type="long" indexed="true" stored="true"/>
    <field name="store_lat_lng" type="location" indexed="true" stored="true"/>
    <field name="_version_" type="long" indexed="true" stored="true"/>
    
@@ -68,7 +68,11 @@
         <tokenizer class="solr.WhitespaceTokenizerFactory"/>
       </analyzer>
     </fieldType>
-
+    <!-- ik中文分词 -->
+    <fieldType name="text_zh" class="solr.TextField">   
+        <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>   
+    </fieldType>  
+    
    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
         <tokenizer class="solr.StandardTokenizerFactory"/>
