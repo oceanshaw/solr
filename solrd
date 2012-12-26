@@ -2,7 +2,7 @@
 #solr home directory
 SOLR_DIR="/home/www/solr"
 #start and stop options
-JAVA_OPTIONS="-DSTOP.PORT=8098 -DSTOP.KEY=123 -jar start.jar"
+JAVA_OPTIONS="-DSTOP.PORT=7999 -DSTOP.KEY=123 -jar start.jar"
 #log directory
 LOG="/var/log/solr.log"
 #java bin
